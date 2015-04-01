@@ -560,7 +560,7 @@ public class AsyncHttpClient {
             callback.onConnect(response);
     }
 
-    public Future<File> executeFile(AsyncHttpRequest req, final String filename, final FileCallback callback) {
+    public Future<File> executeFile(AsyncHttpRequest req, final String filename, final FileCallback callback,boolen clean) {
         final File file = new File(filename);
         file.getParentFile().mkdirs();
         final OutputStream fout;
@@ -587,7 +587,7 @@ public class AsyncHttpClient {
                 }
                 catch (Exception e) {
                 }
-                file.delete();
+                //file.delete();
             }
         };
         ret.setParent(cancel);
